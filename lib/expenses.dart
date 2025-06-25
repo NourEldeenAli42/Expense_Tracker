@@ -1,3 +1,4 @@
+import 'package:expenses/Widgets/expenses_list/expense_item.dart';
 import 'package:expenses/Widgets/expenses_list/expenses_list.dart';
 import 'package:expenses/models/expense.dart';
 import 'package:flutter/material.dart';
@@ -12,22 +13,22 @@ class Expenses extends StatefulWidget{
   }
 }
 class _ExpensesState extends State<Expenses> {
-  final List<Expense> _registeredExpenses = [
-    // Example expenses
-    Expense(
+  final List<ExpenseItem> _registeredExpenses = [
+    ExpenseItem(Expense(
       category: Category.food,
       icon: Icon(Icons.fastfood),
       title: 'Lunch',
       date: DateTime.now(),
       amount: 12.50,
-    ),
-    Expense(
+    ))
+    , ExpenseItem(Expense(
       category: Category.travel,
       icon: Icon(Icons.directions_car),
       title: 'Gas',
       date: DateTime.now(),
       amount: 40.00,
-    ),
+    )),
+    
   ];
 
   @override
