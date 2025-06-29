@@ -11,21 +11,35 @@ enum Category {
   work,
 }
 
+
 class Expense{
-  final String id;
-  final Icon icon;
+  late final String id;
+  late final Icon icon;
   final String title;
   final DateTime date;
   final double amount;
   final Category category;
 
+  Map<Category, IconData> get categoryIcons {
+    return {
+      Category.food: Icons.fastfood,
+      Category.travel: Icons.directions_car,
+      Category.leisure: Icons.movie,
+      Category.work: Icons.work,
+    };
+  }
+
+
   Expense({
     required this.category,
-    required this.icon,
     required this.title,
     required this.date,
     required this.amount,
-  }) : id = uuid.v4();
+  }){
+    id = uuid.v4();
+    icon = Icon(categoryIcons[category] ?? Icons.category);
+  }
+
   String get formattedDate{
     return formatter.format(date);
   }
